@@ -5,53 +5,87 @@
 
 Console.WriteLine("Quanti elementi conterrà l'array?");
 
-bool sanification = false;
+//Sanificazione input dell'utente, in modo tale che vengano accettati solo numeri maggiori di 0
+
+bool LengthSanification = false;
 string StringUserLength = "";
 int UserLength = 0;
 do
 {
     StringUserLength = Console.ReadLine();
-    if (int.TryParse(StringUserLength, out UserLength) & UserLength > 0)
-    {
-        sanification = true;
+    if (int.TryParse(StringUserLength, out UserLength) & UserLength > 0)            //Se l'input dell'utente è un numero(ed è maggiore di 0), verrà convertito correttamente
+    {                                                                               //e il ciclo do while si interrompe
+        LengthSanification = true;
         
-        if (UserLength == 1)
-        {
+        if (UserLength == 1)                                                        //Questo if viene usato nel caso l'utente decidesse di inserire soltanto un elemnto nell'array
+        {                                                                           //così in questo caso viene stampato "elemntO", al posto di scrivre "elemento\i"
             Console.WriteLine("L'array avrà 1 elemento");
+            Console.WriteLine();
         }
         else
         {
-            Console.WriteLine("L'array avrà " + UserLength + " elemento");
+            Console.WriteLine("L'array avrà " + UserLength + " elementi");
+            Console.WriteLine();
         }
     }
     else
     {
-        Console.WriteLine("Per favore inserisca un numero valido");
+        Console.WriteLine("Per favore inserisca un numero valido");                 //Altrimenti, se l'imput è invalido, il ciclo do while ricomnicia da capo, richiedendo l'imput
     }
 
-} while (sanification == false);
+} while (LengthSanification == false);
 
+//Defininizione array vuoto, lungo tanto quanto richiesto dall'utente
 
+int[] arrayInteri = new int[UserLength];
 
+int element = 0;
+string StringElement = "";
 
+//Trasformazione dell'input dell'utente in elementi dell'array
 
+for (int i = 0; i < arrayInteri.Length; i++)             
+{
+    bool ElementSanification = false;
+    Console.WriteLine("Inserisca il " + (i + 1) + "º numero");
 
+    //Sanificazione dell'input dell'utente
+    do
+    {
+        StringElement = Console.ReadLine();
+        if (int.TryParse(StringElement, out element))                                   //Se l'input dell'utente è un numero(ed è maggiore di 0), verrà convertito correttamente
+        {                                                                               //e il ciclo do while si interrompe
+            ElementSanification = true;
+            arrayInteri[i] = element;                                                   //Solo se l'utente ha imesso un numero intero esso verrà aggiunto all'array
+            Console.WriteLine();
+        }
+        else
+        {
+            Console.WriteLine("Per favore inserisca un numero valido");                 //Altrimenti, se l'imput è invalido, il ciclo do while ricomnicia da capo, richiedendo l'imput
+            Console.WriteLine();
+        }
 
+    } while (ElementSanification == false);
+}
 
+//Prova della funzione 1 (Stampa dell'array a video)
+Console.WriteLine("L'array da lei scelto risulta:");
+StampaArrayInteri(arrayInteri);
+Console.WriteLine();
 
+//Prova della funzione 3 (Stampa dell'array in cui i numeri sono stati elevati al quadrato)
+Console.WriteLine("Se eleviamo al quadrato ogni singolo numero otteniamo l'array:");
+StampaArrayInteri(ElevaArrayAlQuadrato(arrayInteri));
+Console.WriteLine();
 
-/*
+//Prova della funzione 4 (Stampa della somma di tutti i numeri)
+int sum = sommaElementiArray(arrayInteri);
+Console.WriteLine("La somma di tutti gli elementi dell'array risulta: " + sum);
+Console.WriteLine();
 
-//Defininizione array di interi
-int[] arrayInteri = { 2, 6, 7, 5, 3, 9};
-
-StampaArrayInteri(arrayInteri);                                 //Prova della funzione 1 (Stampa dell'array a video)
-
-StampaArrayInteri(ElevaArrayAlQuadrato(arrayInteri));           //Prova della funzione 3 (Stampa dell'array in cui i numeri sono stati elevati al quadrato)
-
-Console.WriteLine(sommaElementiArray(arrayInteri));             //Prova della funzione 4 (Stampa della somma di tutti i numeri
-
-Console.WriteLine(sommaElementiArray(ElevaArrayAlQuadrato(arrayInteri)));               //Stampa della somma di tutti i numeri elevati ai quadrati
+//Stampa della somma di tutti i numeri elevati ai quadrati
+int sum_2 = sommaElementiArray(ElevaArrayAlQuadrato(arrayInteri));                                          
+Console.WriteLine("La somma di tutti gli elementi dell'array, dopo averli elevati al quadrato, risulta: "+ sum_2);               
 
 
 //------------------Definizione delle funzioni-----------------
@@ -109,5 +143,3 @@ int sommaElementiArray(int[] array)
     }
     return sum;
 }
-
-*/
