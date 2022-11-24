@@ -7,12 +7,12 @@ int[] arrayInteri = { 1, 5, 6, 9, 1, 2, 3 };
 
 StampaArrayInteri(arrayInteri);             //Prova della funzione 1
 
-
+Console.WriteLine(Quadrato(8));                                //Prova della funzione 2
 
 
 //------------------Definizione delle funzioni-----------------
 
-//Funzione 1: void StampaArrayInteri(int[] array): che preso un array di numeri interi, stampa a video il contenuto dell’array
+//Funzione 1: void StampaArrayInteri(int[] array), che preso un array di numeri interi, stampa a video il contenuto dell’array
 void StampaArrayInteri(int[] array)
 {
     string content = "";
@@ -31,4 +31,11 @@ void StampaArrayInteri(int[] array)
     }
 
     Console.WriteLine("[ " + content + "]");
+}
+
+//Funzione 2: int Quadrato(int numero), che restituisca il quadrato del numero passato come parametro
+int Quadrato(int number)
+{
+    int result = number * number;
+    return result;
 }
