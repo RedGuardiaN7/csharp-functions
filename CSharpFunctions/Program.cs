@@ -1,4 +1,46 @@
-﻿//CONSEGNA: Definire le funzioni di utilità.
+﻿//BONUS: L'utente nella console deifinisce l'array al quale verranno applicate le funzioni definite in precedenza
+//NB: Questo include non solo gli elemnti stessi dell'array, ma anche la lunghezza dell'array!
+
+//Richiesta all'utente della lunghezza dell'array
+
+Console.WriteLine("Quanti elementi conterrà l'array?");
+
+bool sanification = false;
+string StringUserLength = "";
+int UserLength = 0;
+do
+{
+    StringUserLength = Console.ReadLine();
+    if (int.TryParse(StringUserLength, out UserLength) & UserLength > 0)
+    {
+        sanification = true;
+        
+        if (UserLength == 1)
+        {
+            Console.WriteLine("L'array avrà 1 elemento");
+        }
+        else
+        {
+            Console.WriteLine("L'array avrà " + UserLength + " elemento");
+        }
+    }
+    else
+    {
+        Console.WriteLine("Per favore inserisca un numero valido");
+    }
+
+} while (sanification == false);
+
+
+
+
+
+
+
+
+
+
+/*
 
 //Defininizione array di interi
 int[] arrayInteri = { 2, 6, 7, 5, 3, 9};
@@ -67,3 +109,5 @@ int sommaElementiArray(int[] array)
     }
     return sum;
 }
+
+*/
