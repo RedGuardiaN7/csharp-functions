@@ -3,16 +3,15 @@
 //Funzione 1: void StampaArrayInteri(int[] array): che preso un array di numeri interi, stampa a video il contenuto dell’array
 
 //Defininizione array di interi
-int[] arrayInteri = { 1, 5, 6, 9, 1, 2, 3 };
+int[] arrayInteri = { 2, 6, 7, 5, 3, 9};
 
-StampaArrayInteri(arrayInteri);                                 //Prova della funzione 1
+StampaArrayInteri(arrayInteri);                                 //Prova della funzione 1 (Stampa dell'array a video)
 
-Console.WriteLine(Quadrato(8));                                 //Prova della funzione 2
+StampaArrayInteri(ElevaArrayAlQuadrato(arrayInteri));           //Prova della funzione 3 (Stampa dell'array in cui i numeri sono stati elevati al quadrato)
 
-StampaArrayInteri(ElevaArrayAlQuadrato(arrayInteri));           //Prova della funzione 3
+Console.WriteLine(sommaElementiArray(arrayInteri));             //Prova della funzione 4 (Stampa della somma di tutti i numeri
 
-Console.WriteLine(sommaElementiArray(arrayInteri));             //Prova della funzione 4
-
+Console.WriteLine(sommaElementiArray(ElevaArrayAlQuadrato(arrayInteri)));               //Stampa della somma di tutti i numeri elevati ai quadrati
 
 //------------------Definizione delle funzioni-----------------
 
@@ -50,9 +49,9 @@ int[] ElevaArrayAlQuadrato(int[] array)
 {
     int[] CopyArray = (int[])array.Clone();
 
-    for (int i = 0; i < CopyArray.Length; i++)
-    {
-        CopyArray[i] = CopyArray[i] * CopyArray[i];
+for (int i = 0; i < CopyArray.Length; i++)
+{
+    CopyArray[i] = Quadrato(CopyArray[i]);
     }
     return CopyArray;
 }
