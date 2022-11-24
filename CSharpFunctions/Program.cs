@@ -1,7 +1,5 @@
 ﻿//CONSEGNA: Definire le funzioni di utilità.
 
-//Funzione 1: void StampaArrayInteri(int[] array): che preso un array di numeri interi, stampa a video il contenuto dell’array
-
 //Defininizione array di interi
 int[] arrayInteri = { 2, 6, 7, 5, 3, 9};
 
@@ -12,6 +10,7 @@ StampaArrayInteri(ElevaArrayAlQuadrato(arrayInteri));           //Prova della fu
 Console.WriteLine(sommaElementiArray(arrayInteri));             //Prova della funzione 4 (Stampa della somma di tutti i numeri
 
 Console.WriteLine(sommaElementiArray(ElevaArrayAlQuadrato(arrayInteri)));               //Stampa della somma di tutti i numeri elevati ai quadrati
+
 
 //------------------Definizione delle funzioni-----------------
 
@@ -37,6 +36,7 @@ void StampaArrayInteri(int[] array)
 }
 
 //Funzione 2: int Quadrato(int numero), che restituisca il quadrato del numero passato come parametro
+
 int Quadrato(int number)
 {
     int result = number * number;
