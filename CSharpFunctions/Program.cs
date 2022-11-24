@@ -11,6 +11,8 @@ Console.WriteLine(Quadrato(8));                                 //Prova della fu
 
 StampaArrayInteri(ElevaArrayAlQuadrato(arrayInteri));           //Prova della funzione 3
 
+Console.WriteLine(sommaElementiArray(arrayInteri));             //Prova della funzione 4
+
 
 //------------------Definizione delle funzioni-----------------
 
@@ -53,4 +55,16 @@ int[] ElevaArrayAlQuadrato(int[] array)
         CopyArray[i] = CopyArray[i] * CopyArray[i];
     }
     return CopyArray;
+}
+
+//Funzione 4: int sommaElementiArray(int[] array), che preso un array di numeri interi, restituisca la somma totale di tutti gli elementi dell’array
+
+int sommaElementiArray(int[] array)
+{
+    int sum = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        sum += array[i];
+    }
+    return sum;
 }
