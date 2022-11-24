@@ -5,9 +5,11 @@
 //Defininizione array di interi
 int[] arrayInteri = { 1, 5, 6, 9, 1, 2, 3 };
 
-StampaArrayInteri(arrayInteri);             //Prova della funzione 1
+StampaArrayInteri(arrayInteri);                                 //Prova della funzione 1
 
-Console.WriteLine(Quadrato(8));                                //Prova della funzione 2
+Console.WriteLine(Quadrato(8));                                 //Prova della funzione 2
+
+StampaArrayInteri(ElevaArrayAlQuadrato(arrayInteri));           //Prova della funzione 3
 
 
 //------------------Definizione delle funzioni-----------------
@@ -38,4 +40,17 @@ int Quadrato(int number)
 {
     int result = number * number;
     return result;
+}
+
+//Funzione 3: int[] ElevaArrayAlQuadrato(int[] array), che preso un array di numeri interi, restituisca un nuovo array con tutti gli elementi elevati quadrato
+
+int[] ElevaArrayAlQuadrato(int[] array)
+{
+    int[] CopyArray = (int[])array.Clone();
+
+    for (int i = 0; i < CopyArray.Length; i++)
+    {
+        CopyArray[i] = CopyArray[i] * CopyArray[i];
+    }
+    return CopyArray;
 }
